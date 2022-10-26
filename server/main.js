@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { TasksCollection } from '/imports/api/TasksCollection';
+import { ServiceConfiguration } from 'meteor/service-configuration';
 
 // Insert new tasks into collection.
 const insertTask = (taskText, user) =>
@@ -39,4 +40,15 @@ Meteor.startup(() => {
             'Seventh Task'
         ].forEach(taskText => insertTask(taskText, user));
     }
+
+    ServiceConfiguration.configurations.upsert(
+        { service: 'github' },
+        {
+          $set: {
+            loginStyle: 'popup',
+            clientId: '9ca17aff7cc92c474e8f',
+            secret: 'ced3832e979fa951e793c21d5ffe8c4aa33110db',
+          },
+        }
+      );
 });
