@@ -76,7 +76,7 @@ export const App = () => {
                                 {hideCompleted ? 'Show All' : 'Hide Completed'}
                             </button>
                         </div>
-                        {isLoading && <div className="loading">loading...</div>}
+                        {isLoading && <div className="loading">Loading...</div>}
                         <ul className='tasks'>
                             {tasks.map(task => <Task
                                 key={task._id} task={task}

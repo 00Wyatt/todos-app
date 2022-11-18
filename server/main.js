@@ -15,6 +15,7 @@ const insertTask = (taskText, user) =>
 
 // Default user credentials.
 const SEED_USERNAME = 'gandalf';
+const SEED_EMAIL = 'gandalf@example.com';
 const SEED_PASSWORD = 'password';
 
 // Runs when server is started.
@@ -23,6 +24,7 @@ Meteor.startup(() => {
     if (!Accounts.findUserByUsername(SEED_USERNAME)) {
         Accounts.createUser({
             username: SEED_USERNAME,
+            email: SEED_EMAIL,
             password: SEED_PASSWORD,
         });
     }
@@ -33,13 +35,13 @@ Meteor.startup(() => {
     // Insert default tasks.
     if (TasksCollection.find().count() === 0) {
         [
-            'First Task',
-            'Second Task',
-            'Third Task',
-            'Fourth Task',
-            'Fifth Task',
+            'Seventh Task',
             'Sixth Task',
-            'Seventh Task'
+            'Fifth Task',
+            'Fourth Task',
+            'Third Task',
+            'Second Task',
+            'First Task'
         ].forEach(taskText => insertTask(taskText, user));
     }
 
