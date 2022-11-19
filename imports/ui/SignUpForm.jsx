@@ -5,14 +5,14 @@ export const SignUpForm = () => {
     const [username, setUsername] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const submit = e => {
         e.preventDefault();
         Accounts.createUser({username, email, password}, error => {
             if (error) {
-                console.error(error);
+                setErrorMessage(error.reason);
             }
-            console.log("Success");
         });
     };
 
@@ -48,6 +48,7 @@ export const SignUpForm = () => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
             </div>
+            {errorMessage && <div className="text-red-500">{errorMessage}</div>}
             <div className='pb-2'>
                 <button type="submit">Sign Up</button>
             </div>

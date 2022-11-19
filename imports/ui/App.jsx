@@ -53,18 +53,15 @@ export const App = () => {
 
     return (
         <div className="app">
-            <header>
-                <div className="app-bar">
-                    <div className="app-header">
-                        <h1>
-                            📝️ To Do List
-                            {pendingTasksTitle}
-                        </h1>
-                    </div>
+            <header className="relative shadow-md">
+                <div className="bg-white py-2 text-center">
+                    <h1 className="text-terraCotta text-2xl font-bold">
+                        To-do <span className="text-graniteGray">List</span>
+                        <span className="text-terraCotta">{pendingTasksTitle}</span>
+                    </h1>
                 </div>
             </header>
-            <div className="main">
-                {/* If a user is logged in, then show Task form. Else show the login form. */}
+            <div className="bg-antiqueWhite">
                 {user ? (
                     <Fragment>
                         <div className="user" onClick={logout}>
@@ -77,7 +74,7 @@ export const App = () => {
                             </button>
                         </div>
                         {isLoading && <div className="loading">Loading...</div>}
-                        <ul className='tasks'>
+                        <ul className="tasks">
                             {tasks.map(task => <Task
                                 key={task._id} task={task}
                                 onCheckboxClick={toggleChecked}

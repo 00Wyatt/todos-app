@@ -4,8 +4,8 @@
 
 body {
     font-family: sans-serif;
-    background-color: #315481;
-    background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+    /* background-color: #315481;
+    background-image: linear-gradient(to bottom, #315481, #918e82 100%); */
     background-attachment: fixed;
 
     position: absolute;
@@ -17,7 +17,7 @@ body {
     padding: 0;
     margin: 0;
 
-    font-size: 14px;
+    /* font-size: 14px; */
 }
 
 button {
@@ -40,20 +40,20 @@ button:focus {
     height: 100vh;
 }
 
-.app-header {
+/* .app-header {
     flex-grow: 1;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-}
+} */
 
-.main {
+/* .main {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
     overflow: auto;
     background: white;
-}
+} */
 
 .main::-webkit-scrollbar {
     width: 0;
@@ -61,25 +61,25 @@ button:focus {
     background: inherit;
 }
 
-header {
+/* header {
     background: #d2edf4;
     background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
     padding: 20px 15px 15px 15px;
     position: relative;
     box-shadow: 0 3px 3px rgba(34, 25, 25, 0.4);
-}
+} */
 
-.app-bar {
+/* .app-bar {
     display: flex;
     justify-content: space-between;
-}
+} */
 
-.app-bar h1 {
+/* .app-bar h1 {
     font-size: 1.5em;
     margin: 0;
     display: inline-block;
     margin-right: 1em;
-}
+} */
 
 .task-form {
     display: flex;
@@ -101,11 +101,11 @@ header {
     outline: 0;
 }
 
-.task-form > button {
+/* .task-form > button {
     min-width: 100px;
     height: 95%;
     background-color: #315481;
-}
+} */
 
 .tasks {
     list-style-type: none;
@@ -136,9 +136,9 @@ header {
     justify-content: center;
 }
 
-.filter > button {
+/* .filter > button {
     background-color: #62807e;
-}
+} */
 
 .login-form {
     display: flex;
@@ -172,9 +172,9 @@ header {
     outline: 0;
 }
 
-.login-form > div > button {
+/* .login-form > div > button {
     background-color: #62807e;
-}
+} */
 
 .user {
     display: flex;
