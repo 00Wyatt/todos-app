@@ -18,7 +18,7 @@ export const LoginForm = () => {
     };
 
     return (
-        <div className="grid self-start mt-8">
+        <div className="grid self-center md:self-start md:mt-44">
             {!newUser ? (
                 <Fragment>
                     <form className="text-darkGrey form mb-3" onSubmit={submit}>

@@ -65,7 +65,7 @@ export const App = () => {
                 {user ? (
                     <Fragment>
                             <div className="p-3 flex flex-col gap-3">
-                                <div className="text-secondary py-2 font-semibold cursor-pointer" onClick={logout}>
+                                <div className="text-secondary py-2 self-start font-semibold cursor-pointer" onClick={logout}>
                                     {user.username || user.profile.name}
                                 </div>
                                 <TaskForm />
