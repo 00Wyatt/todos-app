@@ -1,7 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Accounts } from 'meteor/accounts-base';
 import { TasksCollection } from '/imports/db/TasksCollection';
-import { ServiceConfiguration } from 'meteor/service-configuration';
 import '/imports/api/tasksMethods';
 import '/imports/api/tasksPublications'
 
@@ -14,7 +13,7 @@ const insertTask = (taskText, user) =>
     });
 
 // Default user credentials.
-const SEED_USERNAME = 'gandalf';
+const SEED_USERNAME = 'Gandalf';
 const SEED_EMAIL = 'gandalf@example.com';
 const SEED_PASSWORD = 'password';
 
@@ -44,15 +43,4 @@ Meteor.startup(() => {
             'First Task'
         ].forEach(taskText => insertTask(taskText, user));
     }
-
-    ServiceConfiguration.configurations.upsert(
-        { service: 'github' },
-        {
-          $set: {
-            loginStyle: 'popup',
-            clientId: '9ca17aff7cc92c474e8f',
-            secret: 'ced3832e979fa951e793c21d5ffe8c4aa33110db',
-          },
-        }
-      );
 });

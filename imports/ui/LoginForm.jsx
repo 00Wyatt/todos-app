@@ -1,6 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import React, { useState, Fragment } from 'react';
-import { LoginWithGithub } from './LoginWithGithub';
 import { SignUpForm } from './SignUpForm';
 
 export const LoginForm = () => {
@@ -19,14 +18,14 @@ export const LoginForm = () => {
     };
 
     return (
-        <div>
+        <div className="grid self-start mt-8">
             {!newUser ? (
                 <Fragment>
-                    <form className="text-graniteGray h-full flex flex-col justify-center items-center" onSubmit={submit}>
+                    <form className="text-darkGrey form mb-3" onSubmit={submit}>
                         <div>
-                            <label htmlFor="username">Username</label>
+                            <label className="label" htmlFor="username">Username</label>
                             <input
-                                className="w-full p-2"
+                                className="input mt-1"
                                 type="text"
                                 placeholder="Username"
                                 name="username"
@@ -35,9 +34,9 @@ export const LoginForm = () => {
                             />
                         </div>
                         <div>
-                            <label htmlFor="password">Password</label>
+                            <label className="label" htmlFor="password">Password</label>
                             <input
-                                className="w-full p-2"
+                                className="input mt-1"
                                 type="password"
                                 placeholder="Password"
                                 name="password"
@@ -46,17 +45,16 @@ export const LoginForm = () => {
                             />
                         </div>
                         {errorMessage && <div className="text-red-500">{errorMessage}</div>}
-                        <div className='bg-terraCotta text-white'>
-                            <button type="submit">Log In</button>
+                        <div className="grid justify-center">
+                            <button className='button' type="submit">Log In</button>
                         </div>
-                        <LoginWithGithub />
                     </form>
                 </Fragment>
             ) : (
                 <SignUpForm />
             )}
-            <div className="filter">
-                <button className="bg-spaceCadet text-white" onClick={() => { setNewUser(!newUser), setErrorMessage('') }}>
+            <div className='grid justify-center'>
+                <button className="button-outline" onClick={() => { setNewUser(!newUser), setErrorMessage('') }}>
                     {newUser ? 'Already registered?' : 'New user?'}
                 </button>
             </div>

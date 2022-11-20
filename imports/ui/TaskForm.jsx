@@ -15,15 +15,15 @@ export const TaskForm = () => {
     };
 
     return (
-        <form className="task-form" onSubmit={handleSubmit}>
+        <form className="w-full flex items-center" onSubmit={handleSubmit}>
             <input
+                className="input mr-2"
                 type="text"
                 placeholder="Type to add new tasks"
                 value={text}
                 onChange={(e) => setText(e.target.value)}
             />
-
-            <button type="submit">Add Task</button>
+            <button className="button min-w-fit" type="submit">Add Task</button>
         </form>
     );
 };

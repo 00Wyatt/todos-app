@@ -52,35 +52,37 @@ export const App = () => {
     const logout = () => Meteor.logout();
 
     return (
-        <div className="app">
-            <header className="relative shadow-md">
-                <div className="bg-white py-2 text-center">
-                    <h1 className="text-terraCotta text-2xl font-bold">
-                        To-do <span className="text-graniteGray">List</span>
-                        <span className="text-terraCotta">{pendingTasksTitle}</span>
+        <div className="bg-white text-darkGrey">
+            <header className="absolute top-0 inset-x-0 shadow-md">
+                <div className="py-2 text-center">
+                    <h1 className="text-secondary text-2xl font-semibold">
+                        <span className="text-primary">To-do </span>List
+                        {pendingTasksTitle}
                     </h1>
                 </div>
             </header>
-            <div className="bg-antiqueWhite">
+            <div className="min-h-screen pt-12 grid max-width">
                 {user ? (
                     <Fragment>
-                        <div className="user" onClick={logout}>
-                            {user.username || user.profile.name} 🚪
-                        </div>
-                        <TaskForm />
-                        <div className="filter">
-                            <button onClick={() => setHideCompleted(!hideCompleted)}>
-                                {hideCompleted ? 'Show All' : 'Hide Completed'}
-                            </button>
-                        </div>
-                        {isLoading && <div className="loading">Loading...</div>}
-                        <ul className="tasks">
-                            {tasks.map(task => <Task
-                                key={task._id} task={task}
-                                onCheckboxClick={toggleChecked}
-                                onDeleteClick={deleteTask}
-                            />)}
-                        </ul>
+                            <div className="p-3 flex flex-col gap-3">
+                                <div className="text-secondary py-2 font-semibold cursor-pointer" onClick={logout}>
+                                    {user.username || user.profile.name}
+                                </div>
+                                <TaskForm />
+                                <div className="my-2 justify-self-center self-center">
+                                    <button className="button-outline" onClick={() => setHideCompleted(!hideCompleted)}>
+                                        {hideCompleted ? 'Show All' : 'Hide Completed'}
+                                    </button>
+                                </div>
+                                {isLoading && <div className="loading">Loading...</div>}
+                                <ul className="grid gap-1.5">
+                                    {tasks.map(task => <Task
+                                        key={task._id} task={task}
+                                        onCheckboxClick={toggleChecked}
+                                        onDeleteClick={deleteTask}
+                                    />)}
+                                </ul>
+                            </div>
                     </Fragment>
                 ) : (
                     <LoginForm />

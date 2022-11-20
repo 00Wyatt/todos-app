@@ -9,7 +9,7 @@ export const SignUpForm = () => {
 
     const submit = e => {
         e.preventDefault();
-        Accounts.createUser({username, email, password}, error => {
+        Accounts.createUser({ username, email, password }, error => {
             if (error) {
                 setErrorMessage(error.reason);
             }
@@ -17,10 +17,11 @@ export const SignUpForm = () => {
     };
 
     return (
-        <form onSubmit={submit} className="login-form">
+        <form className="text-darkGrey form mb-3" onSubmit={submit}>
             <div>
-                <label htmlFor="username">Username</label>
+                <label className="label" htmlFor="username">Username</label>
                 <input
+                    className="input mt-1"
                     type="text"
                     placeholder="Username"
                     name="username"
@@ -29,8 +30,9 @@ export const SignUpForm = () => {
                 />
             </div>
             <div>
-                <label htmlFor="email">Email</label>
+                <label className="label" htmlFor="email">Email</label>
                 <input
+                    className="input mt-1"
                     type="email"
                     placeholder="Email"
                     name="email"
@@ -39,8 +41,9 @@ export const SignUpForm = () => {
                 />
             </div>
             <div>
-                <label htmlFor="password">Password</label>
+                <label className="label" htmlFor="password">Password</label>
                 <input
+                    className="input mt-1"
                     type="password"
                     placeholder="Password"
                     name="password"
@@ -49,8 +52,8 @@ export const SignUpForm = () => {
                 />
             </div>
             {errorMessage && <div className="text-red-500">{errorMessage}</div>}
-            <div className='pb-2'>
-                <button type="submit">Sign Up</button>
+            <div className="grid justify-center">
+                <button className='button' type="submit">Sign Up</button>
             </div>
         </form>
     );
